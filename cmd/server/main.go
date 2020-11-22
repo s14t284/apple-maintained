@@ -93,9 +93,7 @@ func main() {
 	})
 
 	http.HandleFunc("/mac", handler.GetMacHandler(macInteractor))
-
 	http.HandleFunc("/ipad", handler.GetIPadHandler(ipadInteractor))
-
 	http.HandleFunc("/watch", handler.GetWatchHandler(watchInteractor))
 
 	port := os.Getenv("PORT")
@@ -113,4 +111,6 @@ func main() {
 	crawler.CrawlMacPage()
 	crawler.CrawlIPadPage()
 	crawler.CrawlWatchPage()
+	// アプリを終了しないように
+	select {}
 }
